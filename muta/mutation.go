@@ -16,11 +16,17 @@ var MutationType = graphql.NewObject(graphql.ObjectConfig{
 					Description: "New User Email",
 					Type:        graphql.NewNonNull(graphql.String),
 				},
+				"name": &graphql.ArgumentConfig{
+					Description: "New User Name",
+					Type:        graphql.NewNonNull(graphql.String),
+				},
 			},
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 				email := p.Args["email"].(string)
+                                name  := p.Args["name"].(string)
 				user := &User{
 					Email: email,
+                                        Name: name,
 				}
 				err := InsertUser(user)
 				return user, err

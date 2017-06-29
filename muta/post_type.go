@@ -18,6 +18,15 @@ var PostType = graphql.NewObject(graphql.ObjectConfig{
 				return nil, nil
 			},
 		},
+                "user_id": &graphql.Field{
+                        Type: graphql.NewNonNull(graphql.ID),
+                        Resolve: func(p graphql.ResolveParams) (interface{}, error) {
+                               if post, ok := p.Source.(*Post); ok == true {
+                                        return post.UserID, nil
+                               }
+                               return nil, nil
+                         },
+                },
 		"title": &graphql.Field{
 			Type: graphql.NewNonNull(graphql.String),
 			Resolve: func(p graphql.ResolveParams) (interface{}, error) {
