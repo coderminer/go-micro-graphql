@@ -19,12 +19,13 @@ var UserType = graphql.NewObject(graphql.ObjectConfig{
 			},
 		},
   	        "name":  &graphql.Field{
-                        Type: graphql.NewNull(graphql.String),
+                        Type: graphql.String,
                         Resolve: func(p graphql.ResolveParams) (interface{}, error) {
                                if user, ok := p.Source.(*User); ok == true {
                                       return user.Name, nil
                                }
                                return nil, nil
+                        },
                 },
 		"email": &graphql.Field{
 			Type: graphql.NewNonNull(graphql.String),
