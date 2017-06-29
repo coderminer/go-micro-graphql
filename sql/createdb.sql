@@ -57,3 +57,13 @@ INSERT INTO comments (user_id, post_id, title, body) VALUES ( (SELECT id from us
                                                             ( (SELECT id from users where name = 'weizenping'), (SELECT b.id from users a left join posts b on a.id = b.user_id where a.name = 'weizenping' limit 1), 'eth comments', 'a new eth comments.');
 
 SELECT * from comments;															
+
+-- create followers table
+DROP TABLE IF EXIST followers;
+CREATE TABLE IF NOT EXISTS followers (
+  id SERIAL PRIMARY KEY,
+  follower_id SERIAL NOT NULL,
+  followee_id SERIAL NOT NULL
+);
+
+SELECT * from followers;
