@@ -9,7 +9,7 @@ import (
 
 	"github.com/graphql-go/graphql"
 	//_ "github.com/lib/pq"
-        "github.com/topliceanu/graphql-go-example/muta"
+        "github.com/stanxii/go-micro-graphql/muta"
 )
 
 func handler(schema graphql.Schema) http.HandlerFunc {
