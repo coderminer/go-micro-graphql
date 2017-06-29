@@ -1,0 +1,5 @@
+package: learn/graphql-go-example
+import:
+- package: github.com/graphql-go/graphql
+- package: github.com/topliceanu/graphql-go-example/muta
+  version: v0.4.18
