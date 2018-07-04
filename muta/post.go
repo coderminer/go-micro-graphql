@@ -85,7 +85,7 @@ func GetPostsForUser(id int) ([]*Post, error) {
 		if err = rows.Scan(&pid, &title, &body); err != nil {
 			return nil, err
 		}
-		posts = append(posts, &Post{ID: id, UserID: id, Title: title, Body: body})
+		posts = append(posts, &Post{ID: pid, UserID: id, Title: title, Body: body})
 	}
 	return posts, nil
 }
