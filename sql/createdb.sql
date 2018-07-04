@@ -59,7 +59,7 @@ INSERT INTO comments (user_id, post_id, title, body) VALUES ( (SELECT id from us
 SELECT * from comments;															
 
 -- create followers table
-DROP TABLE IF EXIST followers;
+DROP TABLE IF EXISTS followers;
 CREATE TABLE IF NOT EXISTS followers (
   id SERIAL PRIMARY KEY,
   follower_id SERIAL NOT NULL,

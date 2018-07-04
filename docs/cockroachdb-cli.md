@@ -1,4 +1,16 @@
-[root@ickey-master github.com]# cockroach sql -u stan --insecure --host=10.8.15.167
+docker ps -aq
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+
+ /usr/local/bin/cockroach start --insecure --background --port=26257 --host=10.8.11.62 --http-port=8080 --locality=region=cn,datacenter=cn-shanghai --cache=30% --max-sql-memory=50% --store=path=/data/cockroach-data
+
+cockroach sql --insecure --user=stan --host=10.8.11.62 --port=26257 --database=bbs < createdb.sql
+
+
+[root@ickey-master github.com]# cockroach sql -u stan --insecure --host=10.8.11.62
+
+
 # Welcome to the cockroach SQL interface.
 # All statements must be terminated by a semicolon.
 # To exit: CTRL + D.
